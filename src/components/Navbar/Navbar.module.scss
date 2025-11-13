@@ -10,147 +10,148 @@
   height: 60px;
   position: relative;
 
-}
+  .left, .right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    height: 100%;
+  }
 
-.left, .right {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  height: 100%;
-}
+  .left {
+    .logo {
+      font-weight: 700;
+      line-height: 1.1;
+      text-align: center;
+      color: white;
+      font-size: 12px;
 
-.logo {
-  font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
-  color: white;
-  font-size: 12px;
-}
+      .logoLink {
+        border-bottom: none !important;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-.bold {
-  font-weight: 900;
-}
+        &:hover {
+          border-bottom: none !important;
+        }
 
-a {
-  text-decoration: none;
-  color: white;
-  position: relative;
-  transition: color 0.2s ease;
-  border-bottom: 2px transparent solid;
+        .bold {
+          font-weight: 900;
+        }
+      }
+    }
 
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 4px;
+    .new {
+      display: flex;
+      align-items: center;
+      gap: 5px;
 
-  &:hover {
-    border-bottom: 2px solid blue;
+      .badge {
+        background: #ec6c65;
+        color: white;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .right {
+    .userLink {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: white;
+
+      .userIcon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      height: 100%;
+      flex: 0 1 auto;
+
+      .iconLink {
+        flex: 1 1 33.33%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        border-bottom: 2px solid transparent;
+        text-decoration: none;
+        transition: border-color 0.2s ease;
+        position: relative;
+
+        &:hover {
+          border-bottom: 2px solid blue;
+        }
+
+        .iconWrapper {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .icon {
+            width: 22px;
+            height: 20px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.2s ease;
+          }
+
+          .notifBadge {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #007bff;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .flag {
+          width: 20px;
+          height: 20px;
+          background: linear-gradient(to bottom, #fff 50%, #dc143c 50%);
+          border: 1px solid #ccc;
+          border-radius: 50%
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: color 0.2s ease;
+    border-bottom: 2px transparent solid;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 4px;
+
+    &:hover {
+      border-bottom: 2px solid blue;
+    }
   }
 }
 
-.logoLink {
-  border-bottom: none !important;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  &:hover {
-    border-bottom: none !important;
-  }
-}
-
-.new {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.badge {
-  background: #ec6c65;
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-
-.userIcon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-
-.userLink {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: white;
-}
-
-
-.icons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  height: 100%;
-  flex: 0 1 auto;
-
-}
-
-.iconLink {
-  flex: 1 1 33.33%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  border-bottom: 2px solid transparent;
-  text-decoration: none;
-  transition: border-color 0.2s ease;
-  position: relative;
-
-  &:hover {
-    border-bottom: 2px solid blue;
-  }
-}
-
-
-.icon {
-  width: 22px;
-  height: 20px;
-  color: white;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.iconWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.notifBadge {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  background: #007bff;
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flag {
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(to bottom, #fff 50%, #dc143c 50%);
-  border: 1px solid #ccc;
-  border-radius: 50%
-}
