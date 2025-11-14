@@ -89,7 +89,7 @@
         border-bottom: 2px solid transparent;
         text-decoration: none;
         transition: border-color 0.2s ease;
-        position: relative;
+
 
         &:hover {
           border-bottom: 2px solid blue;
@@ -153,5 +153,72 @@
       border-bottom: 2px solid blue;
     }
   }
+
+  @media (max-width: 992px) {
+
+    .right {
+      display: none;
+    }
+
+    .left {
+      a {
+        display: none !important;
+      }
+
+      .logoLink {
+        display: flex !important;
+      }
+    }
+
+    .burger {
+      display: block;
+    }
+
+    .mobileMenu {
+      top: 60px;
+    }
+  }
+
+
+}
+
+/* HAMBURGER — hidden on desktop */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+
+  width: 100%;
+  background: #0d1622;
+  padding: 20px 0;
+  gap: 18px;
+
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  a {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
