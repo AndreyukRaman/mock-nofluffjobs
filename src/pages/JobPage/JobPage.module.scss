@@ -62,10 +62,11 @@ $break-sm: 576px;
       .main {
         width: 100%;
         flex: 1;
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
+        background: #f8f9fa;
         min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
       }
 
       .sidebar {

@@ -1,0 +1,25 @@
+
+.reqContainer{
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+
+  .requirements, .additional {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 7px;
+    min-height: 30px;
+
+    button{
+      background-color: #f3faff;
+      border: none;
+      border-radius: 10px;
+      color: #3b82f6;
+      font-size: 15px;
+      padding: 10px;
+    }
+  }
+
+
+}
