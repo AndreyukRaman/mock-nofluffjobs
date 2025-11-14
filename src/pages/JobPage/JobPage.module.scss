@@ -1,15 +1,26 @@
+
+$max-outer: 1900px;
+$max-inner: 1200px;
+$sidebar-width: 350px;
+
+$break-xxl: 1400px;
+$break-xl: 1200px;
+$break-lg: 992px;
+$break-md: 768px;
+$break-sm: 576px;
+
 .page {
   width: 100%;
   min-height: 100vh;
   background: #f8f9fa;
 
   .outer {
-    max-width: 1900px;
+    max-width: $max-outer;
     margin: 0 auto;
     padding: 20px 40px;
 
     .breadcrumbsWrapper {
-      max-width: 1200px;
+      max-width:$max-inner;
       margin: 0 auto;
     }
 
@@ -41,9 +52,8 @@
     }
 
     .inner {
-      max-width: 1200px;
+      max-width: $max-inner;
       margin: 0 auto;
-
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -55,10 +65,11 @@
         background: white;
         padding: 20px;
         border-radius: 12px;
+        min-width: 0;
       }
 
       .sidebar {
-        width: 350px;
+        width: $sidebar-width;
         flex-shrink: 0;
       }
     }
@@ -93,15 +104,56 @@
   }
 }
 
-@media (max-width: 992px) {
-  .page {
-    .outer {
-      .inner {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-      }
-    }
+/* RESPONSIVE */
+@media (max-width:$break-xxl) {
+.page .outer {
+  padding: 0 30px;
+}
+
+}
+
+@media (max-width: $break-xl) {
+  .page .outer .inner {
+    gap: 20px
+  }
+  .page .outer .inner .sidebar {
+    width: 300px;
+  }
+}
+
+@media (max-width: $break-lg) {
+  .page .outer .inner {
+    flex-direction: column;
+  }
+
+  .page .outer .inner .sidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: $break-md) {
+  .page .outer {
+    padding: 0 20px;
+  }
+
+  .page .chatButton {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: $break-sm) {
+  .page .outer {
+    padding: 0 15px;
+  }
+
+  .page .outer .breadcrumbsWrapper .breadcrumbs a {
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .page .chatButton {
+    width: 50px;
+    height: 50px;
   }
 }
