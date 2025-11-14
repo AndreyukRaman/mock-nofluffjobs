@@ -1,9 +1,23 @@
 import styles from "./JobPage.module.scss"
 import {Link} from "react-router-dom";
 import {ArrowLeft, MessagesSquare} from "lucide-react";
+import JobHeader from "../../components/Job/JobHeader";
 
 
-export default function JobPage(){
+
+
+export default function JobPage() {
+    const job: Job = {
+        companyLogo: "/public/VaimoLogo.jpg",
+        title: "Frontend Developer",
+        companyName: "Vaimo",
+        categories: ['Frontend', 'React'],
+        level: "Mid",
+        location: "Wroclaw, Szczytnicka 11, Business Link",
+        validUntil: "2025-12-03 (zostalo 19 dni)",
+    }
+
+
     return(
         <div className={styles.page}>
 
@@ -26,7 +40,7 @@ export default function JobPage(){
                 <div className={styles.inner}>
 
                     <main className={styles.main}>
-                        <h1>Frontend Developer</h1>
+                        <JobHeader job={job} />
                         {/* TODO */}
                     </main>
 
