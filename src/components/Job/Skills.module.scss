@@ -1,0 +1,33 @@
+.skills{
+  background-color: white;
+  border-radius: 15px;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #2b2b2b;
+
+  ul {
+    line-height: 1.6;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+
+  .translate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+
+    button{
+      border: none;
+      background: none;
+      color: #3b82f6;
+      cursor: pointer;
+
+    }
+  }
+
+}
