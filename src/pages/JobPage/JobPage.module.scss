@@ -67,6 +67,8 @@ $break-sm: 576px;
         min-width: 0;
         display: flex;
         flex-direction: column;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
+
         gap: 20px;
       }
 

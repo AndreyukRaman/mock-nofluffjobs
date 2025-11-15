@@ -11,6 +11,7 @@ import Details from "../../components/Job/Details";
 import Steps from "../../components/Job/Steps";
 import Equipment from "../../components/Job/Equipment";
 import ChecklistSection from "../../components/Job/ChecklistSection";
+import SidebarSalary from "../../components/Job/SidebarSalary";
 
 export default function JobPage() {
   const job: Job = {
@@ -113,7 +114,10 @@ export default function JobPage() {
             />
           </main>
 
-          <aside className={styles.sidebar}>{/* TODO*/}</aside>
+          <aside className={styles.sidebar}>
+            <SidebarSalary min={14000} max={22500} />
+            {/* TODO*/}
+          </aside>
         </div>
       </div>
       <button className={styles.chatButton}>
