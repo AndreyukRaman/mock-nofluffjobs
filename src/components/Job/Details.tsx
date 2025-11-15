@@ -1,7 +1,7 @@
 import styles from "./Details.module.scss";
 import { IDetails } from "../../types/Job";
 
-export default function Details({ details }: IDetails) {
+export default function Details({ details }: { details: IDetails }) {
   return (
     <div className={styles.details}>
       <h3>Szczegóły oferty</h3>

@@ -1,7 +1,7 @@
 import styles from "./Steps.module.scss";
 import { ISteps } from "../../types/Job";
 
-export default function Steps({ steps }: ISteps) {
+export default function Steps({ steps }: { steps: ISteps }) {
   return (
     <div className={styles.steps}>
       <h3>Kroki w procesie rekrutacyjnym</h3>

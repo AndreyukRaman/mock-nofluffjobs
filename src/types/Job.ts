@@ -13,10 +13,6 @@ export interface JobRequirementsProps {
   additionalReqs: string[];
 }
 
-export interface IDetails {
-  details: string[];
-}
+export type IDetails = string[];
 
-export interface ISteps {
-  steps: string[];
-}
+export type ISteps = string[];
