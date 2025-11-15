@@ -9,6 +9,7 @@ import Description from "../../components/Job/Description";
 import Duties from "../../components/Job/Duties";
 import Details from "../../components/Job/Details";
 import Steps from "../../components/Job/Steps";
+import Equipment from "../../components/Job/Equipment";
 
 export default function JobPage() {
   const job: Job = {
@@ -79,6 +80,7 @@ export default function JobPage() {
             <Duties items={dutiesItems} />
             <Details details={details} />
             <Steps steps={steps} />
+            <Equipment />
           </main>
 
           <aside className={styles.sidebar}>{/* TODO*/}</aside>
