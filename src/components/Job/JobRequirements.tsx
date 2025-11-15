@@ -1,5 +1,5 @@
 import styles from "./JobRequirements.module.scss";
-import { JobRequirementsProps } from "../../types/job";
+import { JobRequirementsProps } from "../../types/Job";
 
 export default function JobRequirements({ requirements, additionalReqs }: JobRequirementsProps) {
   return (
