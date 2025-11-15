@@ -10,6 +10,7 @@ import Duties from "../../components/Job/Duties";
 import Details from "../../components/Job/Details";
 import Steps from "../../components/Job/Steps";
 import Equipment from "../../components/Job/Equipment";
+import ChecklistSection from "../../components/Job/ChecklistSection";
 
 export default function JobPage() {
   const job: Job = {
@@ -81,6 +82,35 @@ export default function JobPage() {
             <Details details={details} />
             <Steps steps={steps} />
             <Equipment />
+            <ChecklistSection
+              title="Metodologia"
+              items={[
+                "Agile management",
+                "Knowledge repository",
+                "Code reviews",
+                "Version control system",
+              ]}
+              color="#6B8EF2"
+            />
+
+            <ChecklistSection
+              title="Udogodnienia w biurze"
+              items={["Darmowa kawa", "Strefa rozrywki", "Bez wymaganego dress code'u"]}
+              color="#A66CF2"
+            />
+
+            <ChecklistSection
+              title="Benefity"
+              items={[
+                "Prywatna opieka medyczna",
+                "Pakiet sportowy",
+                "Budżet na szkolenia",
+                "Międzynarodowe projekty",
+                "Małe zespoły",
+                "Płaska struktura",
+              ]}
+              color="#36C2A6"
+            />
           </main>
 
           <aside className={styles.sidebar}>{/* TODO*/}</aside>
