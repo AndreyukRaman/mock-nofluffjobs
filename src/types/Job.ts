@@ -12,3 +12,11 @@ export interface JobRequirementsProps {
   requirements: string[];
   additionalReqs: string[];
 }
+
+export interface IDetails {
+  details: string[];
+}
+
+export interface ISteps {
+  steps: string[];
+}

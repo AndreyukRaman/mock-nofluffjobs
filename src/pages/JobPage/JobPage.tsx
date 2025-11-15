@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MessagesSquare } from "lucide-react";
 import JobHeader from "../../components/Job/JobHeader";
 import JobRequirements from "../../components/Job/JobRequirements";
-import { Job } from "../../types/Job";
+import { Job, IDetails, ISteps } from "../../types/Job";
 import Skills from "../../components/Job/Skills";
 import Description from "../../components/Job/Description";
 import Duties from "../../components/Job/Duties";
+import Details from "../../components/Job/Details";
+import Steps from "../../components/Job/Steps";
 
 export default function JobPage() {
   const job: Job = {
@@ -41,6 +43,15 @@ export default function JobPage() {
     "Continuous Learning: Stay updated with the latest web development trends and technologies to enhance your skills and knowledge.",
   ];
 
+  const details: IDetails = [
+    "Rekrutacja online",
+    "Start ASAP",
+    "Praca w pełni zdalna",
+    "Elastyczne godziny pracy",
+  ];
+
+  const steps: ISteps = ["Recruitment call", "Technical interview", "Manager interview"];
+
   return (
     <div className={styles.page}>
       {/* OUTER CONTAINER – 1900px */}
@@ -66,6 +77,8 @@ export default function JobPage() {
             <Skills />
             <Description />
             <Duties items={dutiesItems} />
+            <Details details={details} />
+            <Steps steps={steps} />
           </main>
 
           <aside className={styles.sidebar}>{/* TODO*/}</aside>

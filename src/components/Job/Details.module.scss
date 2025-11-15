@@ -1,0 +1,27 @@
+
+.details{
+  background-color: white;
+  border-radius: 15px;
+  padding: 0 20px 20px;
+  font-size: 14px;
+  color: #2b2b2b;
+
+
+  .detailsWrapper{
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    button{
+      background-color: #f3faff;
+      border: none;
+      border-radius: 10px;
+      color: #3b82f6;
+      font-size: 15px;
+      padding: 10px;
+    }
+  }
+
+
+}
