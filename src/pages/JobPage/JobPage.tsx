@@ -12,6 +12,7 @@ import Steps from "../../components/Job/Steps";
 import Equipment from "../../components/Job/Equipment";
 import ChecklistSection from "../../components/Job/ChecklistSection";
 import SidebarSalary from "../../components/Job/SidebarSalary";
+import Rate from "../../components/Job/Rate";
 
 export default function JobPage() {
   const job: Job = {
@@ -54,6 +55,9 @@ export default function JobPage() {
   ];
 
   const steps: ISteps = ["Recruitment call", "Technical interview", "Manager interview"];
+
+  const labels: string[] = ["Bardzo źle", "Źle", "Średnio", "Dobrze", "Bardzo dobrze"];
+  const emojis: string[] = ["😫", "🙁", "😕", "🙂", "😃"];
 
   return (
     <div className={styles.page}>
@@ -116,6 +120,7 @@ export default function JobPage() {
 
           <aside className={styles.sidebar}>
             <SidebarSalary min={14000} max={22500} />
+            <Rate emojis={emojis} labels={labels} />
             {/* TODO*/}
           </aside>
         </div>
