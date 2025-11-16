@@ -16,3 +16,12 @@ export interface JobRequirementsProps {
 export type IDetails = string[];
 
 export type ISteps = string[];
+
+export interface Jobs {
+  title: string;
+  salary: string;
+  skills: string[];
+  company: string;
+  logo: string;
+  location: string;
+}

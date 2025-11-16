@@ -1,0 +1,110 @@
+
+.offerContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h2 {
+    margin-bottom: 5px;
+  }
+
+  .jobCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: white;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    }
+
+    .logoWrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+
+    }
+
+    .infoWrapper{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 4px;
+
+
+
+      h5 {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.2;
+      }
+
+
+      button{
+        background-color: #f3faff;
+        border: none;
+        border-radius: 10px;
+        color: #3b82f6;
+        font-size: 10px;
+        padding: 4px 6px;
+        max-width: fit-content;
+      }
+
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+       li button{
+          background-color: #f1f1f1;
+          border: none;
+          border-radius: 10px;
+          color: #8c8c8c;
+          font-size: 10px;
+         padding: 6px 8px;
+
+        }
+      }
+
+      .detailsRow {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: #737373;
+          font-size: 10px;
+        }
+      }
+
+    }
+
+    .bookmark {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      color: #8c8c8c;
+    }
+
+  }
+}

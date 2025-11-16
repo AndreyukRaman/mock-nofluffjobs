@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MessagesSquare } from "lucide-react";
 import JobHeader from "../../components/Job/JobHeader";
 import JobRequirements from "../../components/Job/JobRequirements";
-import { Job, IDetails, ISteps } from "../../types/Job";
+import { Job, IDetails, ISteps, Jobs } from "../../types/Job";
 import Skills from "../../components/Job/Skills";
 import Description from "../../components/Job/Description";
 import Duties from "../../components/Job/Duties";
@@ -13,6 +13,7 @@ import Equipment from "../../components/Job/Equipment";
 import ChecklistSection from "../../components/Job/ChecklistSection";
 import SidebarSalary from "../../components/Job/SidebarSalary";
 import Rate from "../../components/Job/Rate";
+import SidebarOffers from "../../components/Job/SidebarOffers";
 
 export default function JobPage() {
   const job: Job = {
@@ -58,6 +59,65 @@ export default function JobPage() {
 
   const labels: string[] = ["Bardzo źle", "Źle", "Średnio", "Dobrze", "Bardzo dobrze"];
   const emojis: string[] = ["😫", "🙁", "😕", "🙂", "😃"];
+
+  const otherJobs: Jobs[] = [
+    {
+      title: "Senior Frontend developer",
+      salary: "21 840 – 26 880 PLN",
+      skills: ["Frontend", "React", "JavaScript", "CSS"],
+      company: "Fream",
+      logo: "/icons/logo1.svg",
+      location: "Wroclaw",
+    },
+    {
+      title: "Frontend Developer (React, Golang)",
+      salary: "20 160 – 23 520 PLN",
+      skills: ["Frontend", "JavaScript", "TypeScript", "React"],
+      company: "Devire",
+      logo: "/icons/logo7.svg",
+      location: "Zdalnie",
+    },
+    {
+      title: "Mid React Developer",
+      salary: "13 000 – 16 500 PLN",
+      skills: ["Frontend", "React", "JavaScript", "TypeScript"],
+      company: "Link Group",
+      logo: "/icons/logo2.svg",
+      location: "Zdalnie",
+    },
+    {
+      title: "Senior React Developer",
+      salary: "18 000 – 23 000 PLN",
+      skills: ["Frontend", "React", "TypeScript", "JavaScript"],
+      company: "Link Group",
+      logo: "/icons/logo3.svg",
+      location: "Zdalnie",
+    },
+    {
+      title: "Senior Frontend Developer",
+      salary: "23 100 PLN",
+      skills: ["Frontend", "NgRx", "Angular", "TypeScript"],
+      company: "Upvanta",
+      logo: "/icons/logo4.svg",
+      location: "Zdalnie +1",
+    },
+    {
+      title: "Mid/Senior Frontend Developer",
+      salary: "11 300 – 22 000 PLN",
+      skills: ["Frontend", "React", "JavaScript", "TypeScript"],
+      company: "Blurfiy",
+      logo: "/icons/logo5.svg",
+      location: "Wroclaw",
+    },
+    {
+      title: "Frontend Developer (React)",
+      salary: "16 800 – 18 900 PLN",
+      skills: ["Frontend", "React", "JavaScript", "TypeScript"],
+      company: "Onwelo Sp. z o.o.",
+      logo: "/icons/logo6.svg",
+      location: "Zdalnie +2",
+    },
+  ];
 
   return (
     <div className={styles.page}>
@@ -121,6 +181,7 @@ export default function JobPage() {
           <aside className={styles.sidebar}>
             <SidebarSalary min={14000} max={22500} />
             <Rate emojis={emojis} labels={labels} />
+            <SidebarOffers otherJobs={otherJobs} />
             {/* TODO*/}
           </aside>
         </div>
