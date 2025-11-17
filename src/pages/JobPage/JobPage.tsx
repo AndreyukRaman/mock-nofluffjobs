@@ -14,6 +14,8 @@ import ChecklistSection from "../../components/Job/ChecklistSection";
 import SidebarSalary from "../../components/Job/SidebarSalary";
 import Rate from "../../components/Job/Rate";
 import SidebarOffers from "../../components/Job/SidebarOffers";
+import AboutCompany from "../../components/Job/AboutCompany";
+import SubscribeFooter from "../../components/Footer/SubscribeFooter";
 
 export default function JobPage() {
   const job: Job = {
@@ -61,6 +63,62 @@ export default function JobPage() {
   const emojis: string[] = ["😫", "🙁", "😕", "🙂", "😃"];
 
   const otherJobs: Jobs[] = [
+    {
+      title: "Senior Frontend developer",
+      salary: "21 840 – 26 880 PLN",
+      skills: ["Frontend", "React", "JavaScript", "CSS"],
+      company: "Fream",
+      logo: "/icons/logo1.svg",
+      location: "Wroclaw",
+    },
+    {
+      title: "Frontend Developer (React, Golang)",
+      salary: "20 160 – 23 520 PLN",
+      skills: ["Frontend", "JavaScript", "TypeScript", "React"],
+      company: "Devire",
+      logo: "/icons/logo7.svg",
+      location: "Zdalnie",
+    },
+    {
+      title: "Mid React Developer",
+      salary: "13 000 – 16 500 PLN",
+      skills: ["Frontend", "React", "JavaScript", "TypeScript"],
+      company: "Link Group",
+      logo: "/icons/logo2.svg",
+      location: "Zdalnie",
+    },
+    {
+      title: "Senior React Developer",
+      salary: "18 000 – 23 000 PLN",
+      skills: ["Frontend", "React", "TypeScript", "JavaScript"],
+      company: "Link Group",
+      logo: "/icons/logo3.svg",
+      location: "Zdalnie",
+    },
+    {
+      title: "Senior Frontend Developer",
+      salary: "23 100 PLN",
+      skills: ["Frontend", "NgRx", "Angular", "TypeScript"],
+      company: "Upvanta",
+      logo: "/icons/logo4.svg",
+      location: "Zdalnie +1",
+    },
+    {
+      title: "Mid/Senior Frontend Developer",
+      salary: "11 300 – 22 000 PLN",
+      skills: ["Frontend", "React", "JavaScript", "TypeScript"],
+      company: "Blurfiy",
+      logo: "/icons/logo5.svg",
+      location: "Wroclaw",
+    },
+    {
+      title: "Frontend Developer (React)",
+      salary: "16 800 – 18 900 PLN",
+      skills: ["Frontend", "React", "JavaScript", "TypeScript"],
+      company: "Onwelo Sp. z o.o.",
+      logo: "/icons/logo6.svg",
+      location: "Zdalnie +2",
+    },
     {
       title: "Senior Frontend developer",
       salary: "21 840 – 26 880 PLN",
@@ -176,6 +234,15 @@ export default function JobPage() {
               ]}
               color="#36C2A6"
             />
+            <div className={styles.breadcrumbsWrapperLeft}>
+              <div className={styles.breadcrumbs}>
+                <span>React</span>
+                <span>&gt; Frontend</span>
+                <span>&gt; Remote</span>
+                <span>&gt; Frontend Developer</span>
+              </div>
+            </div>
+            <AboutCompany name="Vaimo" founded="2008" size="600+" locations="Stockholm +15" />
           </main>
 
           <aside className={styles.sidebar}>
@@ -184,6 +251,9 @@ export default function JobPage() {
             <SidebarOffers otherJobs={otherJobs} />
             {/* TODO*/}
           </aside>
+        </div>
+        <div className={styles.footerWrapper}>
+          <SubscribeFooter />
         </div>
       </div>
       <button className={styles.chatButton}>

@@ -25,6 +25,16 @@ $break-sm: 576px;
       margin: 0 auto;
     }
 
+    .breadcrumbsWrapperLeft {
+      max-width: $max-inner;
+      margin: 0;
+    }
+
+    .breadcrumbsWrapperLeft .breadcrumbs {
+      margin: 5px;
+    }
+
+
     .breadcrumbs {
       display: flex;
       align-items: center;
@@ -78,9 +88,19 @@ $break-sm: 576px;
         display: flex;
         flex-direction: column;
         gap: 20px;
+        position: sticky;
+        top: 40px;
+        align-self: flex-start;
       }
     }
   }
+
+  .footerWrapper {
+    max-width: $max-inner;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
 
   .chatButton {
     position: fixed;

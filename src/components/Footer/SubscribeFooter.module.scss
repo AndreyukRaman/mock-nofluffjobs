@@ -1,0 +1,119 @@
+.subscribe {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .title {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .criteria {
+    font-size: 14px;
+
+    .tag {
+      background: #e4ecff;
+      color: #2563eb;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-left: 10px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+
+  .form {
+    display: flex;
+    gap: 10px;
+
+    input {
+      flex: 1;
+      height: 45px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 0 12px;
+      font-size: 15px;
+    }
+
+    button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 0 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover {
+        background: #1e4fcc;
+      }
+    }
+  }
+
+  .checkbox {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .benefitsBox {
+    background: #eef1f8;
+    padding: 20px;
+    border-radius: 10px;
+
+    .benefitsTitle {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .benefitsGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+
+      .item {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+        img {
+          height: 36px;
+          margin-bottom: 10px;
+          object-fit: contain;
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+
+  .disclaimer {
+    font-size: 13px;
+    color: #777;
+    margin-top: -10px;
+  }
+}
