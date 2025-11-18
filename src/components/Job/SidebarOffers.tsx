@@ -3,14 +3,15 @@ import { Jobs } from "../../types/Job";
 import { Bookmark, Building2, MapPin } from "lucide-react";
 
 interface Props {
-  otherJobs: Jobs[];
+  // otherJobs: Jobs[];
+  jobs: Jobs[];
 }
 
 export default function SidebarOffers(props: Props) {
   return (
     <div className={styles.offerContainer}>
       <h2>ZOBACZ PODOBNE OFERTY</h2>
-      {props.otherJobs.map((job) => (
+      {props.jobs?.map((job) => (
         <div className={styles.jobCard}>
           <div className={styles.logoWrapper}>
             <img src={job.logo} alt="logo" />

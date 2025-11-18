@@ -25,3 +25,14 @@ export interface Jobs {
   logo: string;
   location: string;
 }
+
+export type StrapiJob = {
+  id: number;
+  documentId: string;
+  title: string;
+  salary: string;
+  skills: string[];
+  company: string;
+  location: string;
+  logo?: { url: string };
+};

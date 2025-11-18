@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MessagesSquare } from "lucide-react";
 import JobHeader from "../../components/Job/JobHeader";
 import JobRequirements from "../../components/Job/JobRequirements";
-import { Job, IDetails, ISteps, Jobs } from "../../types/Job";
+import { Job, IDetails, ISteps, Jobs, StrapiJob } from "../../types/Job";
 import Skills from "../../components/Job/Skills";
 import Description from "../../components/Job/Description";
 import Duties from "../../components/Job/Duties";
@@ -16,8 +16,42 @@ import Rate from "../../components/Job/Rate";
 import SidebarOffers from "../../components/Job/SidebarOffers";
 import AboutCompany from "../../components/Job/AboutCompany";
 import SubscribeFooter from "../../components/Footer/SubscribeFooter";
+import { useEffect, useState } from "react";
 
 export default function JobPage() {
+  const [jobs, setJobs] = useState<StrapiJob[]>([]);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await fetch("http://localhost:1337/api/jobs?populate=logo");
+
+        const json = await res.json();
+
+        if (!res.ok) {
+          console.error("Bad response:", json);
+          return;
+        }
+
+        const formatted = json.data.map((item: any) => ({
+          title: item.title,
+          salary: item.salary,
+          company: item.company,
+          skills: item.skills,
+          location: item.location,
+          logo: item.logo ? "http://localhost:1337" + item.logo.url : null,
+        }));
+
+        setJobs(formatted);
+        console.log("FORMATTED JOBS:", formatted);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   const job: Job = {
     companyLogo: "/public/VaimoLogo.jpg",
     title: "Frontend Developer",
@@ -248,7 +282,7 @@ export default function JobPage() {
           <aside className={styles.sidebar}>
             <SidebarSalary min={14000} max={22500} />
             <Rate emojis={emojis} labels={labels} />
-            <SidebarOffers otherJobs={otherJobs} />
+            <SidebarOffers jobs={jobs} />
             {/* TODO*/}
           </aside>
         </div>
