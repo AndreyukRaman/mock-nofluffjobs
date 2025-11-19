@@ -17,22 +17,21 @@ export type IDetails = string[];
 
 export type ISteps = string[];
 
-export interface Jobs {
-  title: string;
-  salary: string;
-  skills: string[];
-  company: string;
-  logo: string;
-  location: string;
-}
+export type StrapiSkill = {
+  id: number;
+  name: string;
+};
 
 export type StrapiJob = {
   id: number;
   documentId: string;
   title: string;
   salary: string;
-  skills: string[];
+  skills: StrapiSkill[];
   company: string;
   location: string;
-  logo?: { url: string };
+
+  logo?: {
+    url: string;
+  };
 };

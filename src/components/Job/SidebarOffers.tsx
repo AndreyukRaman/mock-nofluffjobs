@@ -1,10 +1,9 @@
 import styles from "./SidebarOffers.module.scss";
-import { Jobs } from "../../types/Job";
 import { Bookmark, Building2, MapPin } from "lucide-react";
+import { StrapiJob } from "../../types/Job";
 
 interface Props {
-  // otherJobs: Jobs[];
-  jobs: Jobs[];
+  jobs: StrapiJob[];
 }
 
 export default function SidebarOffers(props: Props) {
@@ -14,15 +13,15 @@ export default function SidebarOffers(props: Props) {
       {props.jobs?.map((job) => (
         <div className={styles.jobCard}>
           <div className={styles.logoWrapper}>
-            <img src={job.logo} alt="logo" />
+            <img src={job.logo?.url} alt="logo" />
           </div>
           <div className={styles.infoWrapper}>
             <h5>{job.title}</h5>
             <button>{job.salary}</button>
             <ul>
-              {job.skills.map((skill) => (
-                <li key={skill}>
-                  <button>{skill}</button>
+              {job.skills?.map((skill) => (
+                <li key={skill.id}>
+                  <button>{skill.name}</button>
                 </li>
               ))}
             </ul>
