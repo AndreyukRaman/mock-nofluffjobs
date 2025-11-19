@@ -35,3 +35,16 @@ export type StrapiJob = {
     url: string;
   };
 };
+
+export type StrapiSkillPayload = {
+  name: string;
+};
+
+export type StrapiJobPayload = {
+  title: string;
+  salary: string;
+  company: string;
+  location: string;
+  skills?: StrapiSkillPayload[];
+  logo?: string | number; // URL или upload ID
+};
