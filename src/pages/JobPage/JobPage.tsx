@@ -17,12 +17,17 @@ import SidebarOffers from "../../components/Job/SidebarOffers";
 import AboutCompany from "../../components/Job/AboutCompany";
 import SubscribeFooter from "../../components/Footer/SubscribeFooter";
 import { useEffect, useState } from "react";
+import MyLoader from "../../components/MyLoader";
+import SidebarOffersSkeleton from "../../components/SidebarOffersSkeleton";
 
 export default function JobPage() {
   const [jobs, setJobs] = useState<StrapiJob[]>([]);
+  const [loader, setLoader] = useState(false);
+
   useEffect(() => {
     const fetchJobs = async () => {
       try {
+        setLoader(true);
         const res = await fetch(
           "https://useful-freedom-0408a0c57a.strapiapp.com/api/jobs?populate=*",
         );
@@ -57,6 +62,8 @@ export default function JobPage() {
         setJobs(formatted);
       } catch (err) {
         console.error("FETCH ERROR:", err);
+      } finally {
+        setLoader(false);
       }
     };
 
@@ -293,7 +300,8 @@ export default function JobPage() {
           <aside className={styles.sidebar}>
             <SidebarSalary min={14000} max={22500} />
             <Rate emojis={emojis} labels={labels} />
-            <SidebarOffers jobs={jobs} />
+            {loader ? <SidebarOffersSkeleton /> : <SidebarOffers jobs={jobs} />}
+
             {/* TODO*/}
           </aside>
         </div>

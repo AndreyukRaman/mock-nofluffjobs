@@ -1,0 +1,122 @@
+/* ========= BASE ========= */
+
+.skeletonBase {
+  --bg: #e8e8e8;
+  --highlight: #f4f4f4;
+
+  background: linear-gradient(90deg, var(--bg) 0%, var(--highlight) 50%, var(--bg) 100%);
+  background-size: 200% 100%;
+  animation: loading 1.3s ease infinite;
+  border-radius: 6px;
+}
+
+@keyframes loading {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ========= LAYOUT ========= */
+
+.offerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h2 {
+    margin-bottom: 5px;
+  }
+}
+
+.jobCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid #eee; /* совпадает с ховером оригинальной */
+  position: relative;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========= SKELETON ELEMENTS ========= */
+
+.skeletonLogo {
+  @extend .skeletonBase;
+  width: 40px;     /* точно как img в оригинале */
+  height: 40px;
+  border-radius: 8px;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+.skeletonTitle {
+  @extend .skeletonBase;
+  width: 65%;      /* как ширина заголовка */
+  height: 14px;
+  margin: 4px 0 2px;
+}
+
+.skeletonSalary {
+  @extend .skeletonBase;
+  width: 40%;
+  height: 12px;
+  margin-bottom: 6px;
+}
+
+/* Skills list */
+.skillsSkeleton {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skeletonSkill {
+  @extend .skeletonBase;
+  width: 48px;     /* как кнопки-skill */
+  height: 18px;
+  border-radius: 10px;
+}
+
+.detailsRow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.skeletonLine {
+  @extend .skeletonBase;
+  width: 80px;
+  height: 10px;
+}
+
+/* Bookmark */
+.skeletonBookmark {
+  @extend .skeletonBase;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 4px;
+}
