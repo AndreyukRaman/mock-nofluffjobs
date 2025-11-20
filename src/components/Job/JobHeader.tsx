@@ -12,7 +12,7 @@ export default function JobHeader({ job }: Props) {
     <div className={styles.header}>
       {/* LEFT COLUMN — LOGO */}
       <div className={styles.logoWrapper}>
-        <img src={job.logo ?? "/placeholder.svg"} />
+        {job.logo?.url && <img src={job.logo.url} alt={job.title} />}
       </div>
 
       {/* RIGHT CONTENT */}

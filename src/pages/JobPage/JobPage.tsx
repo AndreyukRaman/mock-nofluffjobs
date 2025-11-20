@@ -126,7 +126,7 @@ export default function JobPage() {
               additionalReq: a.additionalReq,
             })) || [],
 
-          logo: item.logo?.url || null,
+          logo: item.logo ? { url: item.logo.url } : { url: null },
         };
 
         setJobData(formatted);
