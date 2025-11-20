@@ -1,9 +1,9 @@
 import styles from "./SidebarOffers.module.scss";
 import { Bookmark, Building2, MapPin } from "lucide-react";
-import { StrapiJob } from "../../types/Job";
+import { StrapiJobListItem, StrapiSkill } from "../../types/Job";
 
 interface Props {
-  jobs: StrapiJob[];
+  jobs: StrapiJobListItem[];
 }
 
 export default function SidebarOffers(props: Props) {
@@ -13,7 +13,7 @@ export default function SidebarOffers(props: Props) {
       {props.jobs?.map((job) => (
         <div className={styles.jobCard}>
           <div className={styles.logoWrapper}>
-            <img src={job.logo?.url} alt="logo" />
+            {job.logo?.url && <img src={job.logo.url} alt={job.title} />}
           </div>
           <div className={styles.infoWrapper}>
             <h5>{job.title}</h5>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MessagesSquare } from "lucide-react";
 import JobHeader from "../../components/Job/JobHeader";
 import JobRequirements from "../../components/Job/JobRequirements";
-import { Job, IDetails, ISteps, StrapiJobListItem, StrapiJobSingle } from "../../types/Job";
+import { IDetails, ISteps, StrapiJobListItem, StrapiJobSingle } from "../../types/Job";
 import Skills from "../../components/Job/Skills";
 import Description from "../../components/Job/Description";
 import Duties from "../../components/Job/Duties";

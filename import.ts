@@ -1,9 +1,9 @@
-import { StrapiJobSingle } from "./src/types/Job";
+import { CreateJobDto } from "./src/types/Job";
 
 const STRAPI_URL = process.env.STRAPI_URL!;
 const STRAPI_TOKEN = process.env.STRAPI_TOKEN!;
 
-const jobs: StrapiJobSingle[] = [
+const jobs: CreateJobDto[] = [
   {
     title: "Senior Frontend developer",
     salary: "21 840 – 26 880 PLN",

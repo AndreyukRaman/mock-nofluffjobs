@@ -1,9 +1,9 @@
 import styles from "./JobRequirements.module.scss";
-import { StrapiAdditionalReqPayload, StrapiRequirementPayload } from "../../types/Job";
+import { StrapiAdditionalReq, StrapiRequirement } from "../../types/Job";
 
 interface Props {
-  requirements: StrapiRequirementPayload[];
-  additionalReqs: StrapiAdditionalReqPayload[];
+  requirements: StrapiRequirement[];
+  additionalReqs: StrapiAdditionalReq[];
 }
 
 export default function JobRequirements({ requirements, additionalReqs }: Props) {

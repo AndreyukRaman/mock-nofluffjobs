@@ -1,17 +1,4 @@
-export interface Job {
-  companyLogo: string;
-  title: string;
-  companyName: string;
-  categories: string[];
-  level: "Junior" | "Mid" | "Senior";
-  location: string;
-  validUntil: string;
-}
-
-export interface JobRequirementsProps {
-  requirements: string[];
-  additionalReqs: string[];
-}
+//for Read data
 
 export type IDetails = string[];
 
@@ -22,15 +9,13 @@ export type StrapiSkill = {
   name: string;
 };
 
-export type StrapiSkillPayload = {
-  name: string;
-};
-
-export type StrapiRequirementPayload = {
+export type StrapiRequirement = {
+  id: number;
   requirement: string;
 };
 
-export type StrapiAdditionalReqPayload = {
+export type StrapiAdditionalReq = {
+  id: number;
   additionalReq: string;
 };
 
@@ -40,7 +25,7 @@ export type StrapiJobListItem = {
   salary: string;
   company: string;
   location: string;
-  skills: StrapiSkillPayload[];
+  skills: StrapiSkill[];
   logo?: {
     url: string | null;
   };
@@ -57,11 +42,38 @@ export type StrapiJobSingle = {
   validUntil: string;
   workLocation: string;
 
-  skills: StrapiSkillPayload[];
-  requirements: StrapiRequirementPayload[];
-  additionalReqs: StrapiAdditionalReqPayload[];
+  skills: StrapiSkill[];
+  requirements: StrapiRequirement[];
+  additionalReqs: StrapiAdditionalReq[];
 
   logo?: {
     url: string | null;
   };
+};
+
+// for Create DTO
+export type CreateSkillDto = {
+  name: string;
+};
+
+export type CreateRequirementDto = {
+  requirement: string;
+};
+
+export type CreateAdditionalReqDto = {
+  additionalReq: string;
+};
+
+export type CreateJobDto = {
+  title: string;
+  salary: string;
+  company: string;
+  location: string;
+  level: string;
+  validUntil: string;
+  workLocation: string;
+
+  skills: CreateSkillDto[];
+  requirements: CreateRequirementDto[];
+  additionalReqs: CreateAdditionalReqDto[];
 };
