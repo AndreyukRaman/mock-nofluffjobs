@@ -31,7 +31,7 @@ export default function JobHeader({ job }: Props) {
             <div className={styles.left}>
               <img src="/icons/react.svg" alt="React" className={styles.icon} />
               <span className={styles.label}>Kategoria:</span>
-              <strong>Frontend, React</strong>
+              <strong>{/*TODO*/}Frontend, React</strong>
             </div>
 
             <div className={styles.right}>

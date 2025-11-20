@@ -148,17 +148,17 @@ export default function JobPage() {
   //   validUntil: "2025-12-03 (zostalo 19 dni)",
   // };
 
-  const requirements: string[] = [
-    "React",
-    "JavaScript",
-    "Next.js",
-    "CMS",
-    "Contentfull",
-    "Sanity",
-    "Git",
-    "Angielski(B2)",
-  ];
-  const additionalReqs: string[] = ["CSS", "Tailwind", "REST API"];
+  // const requirements: string[] = [
+  //   "React",
+  //   "JavaScript",
+  //   "Next.js",
+  //   "CMS",
+  //   "Contentfull",
+  //   "Sanity",
+  //   "Git",
+  //   "Angielski(B2)",
+  // ];
+  // const additionalReqs: string[] = ["CSS", "Tailwind", "REST API"];
 
   const dutiesItems: string[] = [
     "User Interface Development: Develop and maintain user interfaces using JavaScript, React, and Next.js.",
@@ -317,8 +317,17 @@ export default function JobPage() {
         {/* INNER CONTAINER – 1200px */}
         <div className={styles.inner}>
           <main className={styles.main}>
-            {jobData && <JobHeader job={jobData} />}
-            <JobRequirements requirements={requirements} additionalReqs={additionalReqs} />
+            {jobData && (
+              <>
+                {" "}
+                <JobHeader job={jobData} />
+                <JobRequirements
+                  requirements={jobData.requirements}
+                  additionalReqs={jobData.additionalReqs}
+                />
+              </>
+            )}
+
             <Skills />
             <Description />
             <Duties items={dutiesItems} />
