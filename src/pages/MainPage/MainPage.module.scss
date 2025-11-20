@@ -1,0 +1,244 @@
+
+$max-outer: 1900px;
+$max-inner: 1200px;
+$sidebar-width: 350px;
+
+$break-xxl: 1400px;
+$break-xl: 1200px;
+$break-lg: 992px;
+$break-md: 768px;
+$break-sm: 576px;
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+
+
+  .outer {
+    max-width: $max-outer;
+    margin: 0 auto;
+    padding: 20px 40px;
+
+
+    .inner {
+      max-width: $max-inner;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 25px;
+
+      .main {
+        width: 100%;
+        flex: 1;
+        background: #f8f9fa;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
+        gap: 20px;
+
+
+        .offerContainer2{
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          h2 {
+            margin-bottom: 5px;
+          }
+
+          .jobCard2{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: white;
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+
+            &:hover{
+              background-color: #f8f9fa;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+            }
+
+            .logoWrapper{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+              }
+
+
+            }
+
+            .infoWrapper{
+              display: flex;
+              flex-direction: column;
+              flex: 1;
+              gap: 4px;
+
+
+
+              h5 {
+                margin: 0;
+                font-size: 14px;
+                line-height: 1.2;
+              }
+
+
+              button{
+                background-color: #f3faff;
+                border: none;
+                border-radius: 10px;
+                color: #3b82f6;
+                font-size: 10px;
+                padding: 4px 6px;
+                max-width: fit-content;
+              }
+
+              ul{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li button{
+                  background-color: #f1f1f1;
+                  border: none;
+                  border-radius: 10px;
+                  color: #8c8c8c;
+                  font-size: 10px;
+                  padding: 6px 8px;
+
+                }
+              }
+
+              .detailsRow {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                span {
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  color: #737373;
+                  font-size: 10px;
+                }
+              }
+
+            }
+
+            .bookmark {
+              position: absolute;
+              right: 15px;
+              bottom: 15px;
+              color: #8c8c8c;
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .footerWrapper {
+    max-width: $max-inner;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+
+  .chatButton {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    background: #007bff;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform .2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width:$break-xxl) {
+.page .outer {
+  padding: 0 30px;
+}
+
+}
+
+@media (max-width: $break-xl) {
+  .page .outer .inner {
+    gap: 20px
+  }
+  .page .outer .inner .sidebar {
+    width: 300px;
+  }
+}
+
+@media (max-width: $break-lg) {
+  .page .outer .inner {
+    flex-direction: column;
+  }
+
+  .page .outer .inner .sidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: $break-md) {
+  .page .outer {
+    padding: 0 20px;
+  }
+
+  .page .chatButton {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: $break-sm) {
+  .page .outer {
+    padding: 0 15px;
+  }
+
+  .page .outer .breadcrumbsWrapper .breadcrumbs a {
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .page .chatButton {
+    width: 50px;
+    height: 50px;
+  }
+}
