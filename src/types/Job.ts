@@ -40,11 +40,26 @@ export type StrapiSkillPayload = {
   name: string;
 };
 
+export type StrapiRequirementPayload = {
+  requirement: string;
+};
+
+export type StrapiAdditionalReqPayload = {
+  additionalReq: string;
+};
+
 export type StrapiJobPayload = {
   title: string;
   salary: string;
   company: string;
   location: string;
+  logo?: string | number;
+
   skills?: StrapiSkillPayload[];
-  logo?: string | number; // URL или upload ID
+  requirements?: StrapiRequirementPayload[];
+  additionalReqs?: StrapiAdditionalReqPayload[];
+
+  level: string;
+  validUntil: string;
+  workLocation: string;
 };

@@ -17,7 +17,6 @@ import SidebarOffers from "../../components/Job/SidebarOffers";
 import AboutCompany from "../../components/Job/AboutCompany";
 import SubscribeFooter from "../../components/Footer/SubscribeFooter";
 import { useEffect, useState } from "react";
-import MyLoader from "../../components/MyLoader";
 import SidebarOffersSkeleton from "../../components/SidebarOffersSkeleton";
 
 export default function JobPage() {
