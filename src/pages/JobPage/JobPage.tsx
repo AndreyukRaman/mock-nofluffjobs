@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MessagesSquare } from "lucide-react";
 import JobHeader from "../../components/Job/JobHeader";
 import JobRequirements from "../../components/Job/JobRequirements";
-import { Job, IDetails, ISteps, StrapiJob } from "../../types/Job";
+import { Job, IDetails, ISteps, StrapiJobListItem, StrapiJobSingle } from "../../types/Job";
 import Skills from "../../components/Job/Skills";
 import Description from "../../components/Job/Description";
 import Duties from "../../components/Job/Duties";
@@ -18,11 +18,16 @@ import AboutCompany from "../../components/Job/AboutCompany";
 import SubscribeFooter from "../../components/Footer/SubscribeFooter";
 import { useEffect, useState } from "react";
 import SidebarOffersSkeleton from "../../components/SidebarOffersSkeleton";
+import { useParams } from "react-router-dom";
 
 export default function JobPage() {
-  const [jobs, setJobs] = useState<StrapiJob[]>([]);
+  const [jobs, setJobs] = useState<StrapiJobListItem[]>([]);
+  const [jobData, setJobData] = useState<StrapiJobSingle | null>(null);
   const [loader, setLoader] = useState(false);
 
+  const { id } = useParams(); // /job/:id
+
+  //jobs list
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -40,7 +45,7 @@ export default function JobPage() {
 
         console.log(json.data);
 
-        const formatted: StrapiJob[] = json.data.map((item: any) => {
+        const formatted: StrapiJobListItem[] = json.data.map((item: any) => {
           return {
             id: item.id,
             documentId: item.documentId,
@@ -68,6 +73,70 @@ export default function JobPage() {
 
     fetchJobs();
   }, []);
+
+  //single job
+  useEffect(() => {
+    // if (!id) return;
+
+    const fetchSingleJob = async () => {
+      try {
+        console.log("▶ Fetching single job");
+        const documentId = "mt9yd4rzn1vlkstricu3z9xd";
+        const res = await fetch(
+          `https://useful-freedom-0408a0c57a.strapiapp.com/api/jobs/${documentId}?populate=*`,
+        );
+
+        const json = await res.json();
+
+        if (!res.ok) {
+          console.error("❌ Error fetching job:", json);
+          return;
+        }
+
+        console.log("✔ SINGLE JOB:", json.data);
+
+        const item = json.data;
+
+        const formatted: StrapiJobSingle = {
+          id: item.id,
+          // documentId: item.documentId,
+          title: item.title,
+          salary: item.salary,
+          company: item.company,
+          location: item.location,
+          level: item.level,
+          validUntil: item.validUntil,
+          workLocation: item.workLocation,
+
+          skills:
+            item.skills?.map((s: any) => ({
+              id: s.id,
+              name: s.name,
+            })) || [],
+
+          requirements:
+            item.requirements?.map((r: any) => ({
+              id: r.id,
+              requirement: r.requirement,
+            })) || [],
+
+          additionalReqs:
+            item.additionalReqs?.map((a: any) => ({
+              id: a.id,
+              additionalReq: a.additionalReq,
+            })) || [],
+
+          logo: item.logo?.url || null,
+        };
+
+        setJobData(formatted);
+      } catch (err) {
+        console.error("❌ SINGLE JOB FETCH ERROR:", err);
+      }
+    };
+
+    fetchSingleJob();
+  }, [id]);
 
   const job: Job = {
     companyLogo: "/public/VaimoLogo.jpg",

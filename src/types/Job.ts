@@ -22,20 +22,6 @@ export type StrapiSkill = {
   name: string;
 };
 
-export type StrapiJob = {
-  id: number;
-  documentId: string;
-  title: string;
-  salary: string;
-  skills: StrapiSkill[];
-  company: string;
-  location: string;
-
-  logo?: {
-    url: string;
-  };
-};
-
 export type StrapiSkillPayload = {
   name: string;
 };
@@ -48,18 +34,34 @@ export type StrapiAdditionalReqPayload = {
   additionalReq: string;
 };
 
-export type StrapiJobPayload = {
+export type StrapiJobListItem = {
+  id: number;
   title: string;
   salary: string;
   company: string;
   location: string;
-  logo?: string | number;
+  skills: StrapiSkillPayload[];
+  logo?: {
+    url: string;
+  };
+};
 
-  skills?: StrapiSkillPayload[];
-  requirements?: StrapiRequirementPayload[];
-  additionalReqs?: StrapiAdditionalReqPayload[];
+export type StrapiJobSingle = {
+  id: number;
+  title: string;
+  salary: string;
+  company: string;
+  location: string;
 
   level: string;
   validUntil: string;
   workLocation: string;
+
+  skills: StrapiSkillPayload[];
+  requirements: StrapiRequirementPayload[];
+  additionalReqs: StrapiAdditionalReqPayload[];
+
+  logo?: {
+    url: string;
+  };
 };
