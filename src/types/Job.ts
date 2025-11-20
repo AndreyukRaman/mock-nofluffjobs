@@ -42,7 +42,7 @@ export type StrapiJobListItem = {
   location: string;
   skills: StrapiSkillPayload[];
   logo?: {
-    url: string;
+    url: string | null;
   };
 };
 
@@ -62,6 +62,6 @@ export type StrapiJobSingle = {
   additionalReqs: StrapiAdditionalReqPayload[];
 
   logo?: {
-    url: string;
+    url: string | null;
   };
 };

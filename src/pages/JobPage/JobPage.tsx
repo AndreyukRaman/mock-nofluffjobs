@@ -138,15 +138,15 @@ export default function JobPage() {
     fetchSingleJob();
   }, [id]);
 
-  const job: Job = {
-    companyLogo: "/public/VaimoLogo.jpg",
-    title: "Frontend Developer",
-    companyName: "Vaimo",
-    categories: ["Frontend", "React"],
-    level: "Mid",
-    location: "Wroclaw, Szczytnicka 11, Business Link",
-    validUntil: "2025-12-03 (zostalo 19 dni)",
-  };
+  // const job: Job = {
+  //   companyLogo: "/public/VaimoLogo.jpg",
+  //   title: "Frontend Developer",
+  //   companyName: "Vaimo",
+  //   categories: ["Frontend", "React"],
+  //   level: "Mid",
+  //   location: "Wroclaw, Szczytnicka 11, Business Link",
+  //   validUntil: "2025-12-03 (zostalo 19 dni)",
+  // };
 
   const requirements: string[] = [
     "React",
@@ -317,7 +317,7 @@ export default function JobPage() {
         {/* INNER CONTAINER – 1200px */}
         <div className={styles.inner}>
           <main className={styles.main}>
-            <JobHeader job={job} />
+            {jobData && <JobHeader job={jobData} />}
             <JobRequirements requirements={requirements} additionalReqs={additionalReqs} />
             <Skills />
             <Description />

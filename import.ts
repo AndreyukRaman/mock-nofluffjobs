@@ -1,9 +1,9 @@
-import { StrapiJobPayload } from "./src/types/Job";
+import { StrapiJobSingle } from "./src/types/Job";
 
 const STRAPI_URL = process.env.STRAPI_URL!;
 const STRAPI_TOKEN = process.env.STRAPI_TOKEN!;
 
-const jobs: StrapiJobPayload[] = [
+const jobs: StrapiJobSingle[] = [
   {
     title: "Senior Frontend developer",
     salary: "21 840 – 26 880 PLN",
@@ -109,7 +109,7 @@ const jobs: StrapiJobPayload[] = [
   // },
 ];
 
-async function importJob(job: StrapiJobPayload) {
+async function importJob(job: StrapiJobSingle) {
   const payload = {
     title: job.title,
     salary: job.salary,
