@@ -2,9 +2,8 @@ import styles from "./MainPage.module.scss";
 
 import { Bookmark, Building2, MapPin, MessagesSquare } from "lucide-react";
 import { StrapiJobListItem } from "../../types/Job";
-
 import { JSX, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import SubscribeFooter from "../../components/Footer/SubscribeFooter";
 
 interface Props {
@@ -74,7 +73,7 @@ export default function MainPage(props: Props): JSX.Element {
             <div className={styles.offerContainer2}>
               <h2> OFERTY</h2>
               {jobs?.map((job) => (
-                <div className={styles.jobCard2}>
+                <Link to={`/job/${job.documentId}`} className={styles.jobCard2}>
                   <div className={styles.logoWrapper}>
                     {job.logo?.url && <img src={job.logo.url} alt={job.title} />}
                   </div>
@@ -102,7 +101,7 @@ export default function MainPage(props: Props): JSX.Element {
 
                     <Bookmark className={styles.bookmark} />
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </main>

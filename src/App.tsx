@@ -10,8 +10,11 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<JobPage />} />
-        <Route path="/main" element={<MainPage />} />
+        {/* Главная */}
+        <Route path="/" element={<MainPage />} />
+
+        {/* Динамическая страница вакансии */}
+        <Route path="/job/:id" element={<JobPage />} />
       </Routes>
     </div>
   );

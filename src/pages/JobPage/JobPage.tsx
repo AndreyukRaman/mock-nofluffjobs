@@ -25,8 +25,6 @@ export default function JobPage() {
   const [jobData, setJobData] = useState<StrapiJobSingle | null>(null);
   const [loader, setLoader] = useState(false);
 
-  const { id } = useParams(); // /job/:id
-
   //jobs list
   useEffect(() => {
     const fetchJobs = async () => {
@@ -74,14 +72,15 @@ export default function JobPage() {
     fetchJobs();
   }, []);
 
+  const { id: documentId } = useParams();
+
   //single job
   useEffect(() => {
-    // if (!id) return;
+    if (!documentId) return;
 
     const fetchSingleJob = async () => {
       try {
         console.log("▶ Fetching single job");
-        const documentId = "mt9yd4rzn1vlkstricu3z9xd";
         const res = await fetch(
           `https://useful-freedom-0408a0c57a.strapiapp.com/api/jobs/${documentId}?populate=*`,
         );
@@ -136,7 +135,7 @@ export default function JobPage() {
     };
 
     fetchSingleJob();
-  }, [id]);
+  }, [documentId]);
 
   // const job: Job = {
   //   companyLogo: "/public/VaimoLogo.jpg",
