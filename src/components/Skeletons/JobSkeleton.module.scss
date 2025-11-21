@@ -1,0 +1,121 @@
+/* ============================================
+   GLOBAL SKELETON BASE
+============================================ */
+.skeleton {
+  --bg: #e8e8e8;
+  --highlight: #f4f4f4;
+
+  background: linear-gradient(
+                  90deg,
+                  var(--bg) 0%,
+                  var(--highlight) 50%,
+                  var(--bg) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   HEADER SKELETON
+============================================ */
+.headerCard {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  @extend .skeleton;
+  width: 65px;
+  height: 65px;
+  border-radius: 12px;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.title {
+  @extend .skeleton;
+  height: 22px;
+  width: 60%;
+}
+
+.company {
+  @extend .skeleton;
+  height: 16px;
+  width: 40%;
+}
+
+.location {
+  @extend .skeleton;
+  height: 14px;
+  width: 35%;
+}
+
+.tagsRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.tag {
+  @extend .skeleton;
+  width: 70px;
+  height: 18px;
+  border-radius: 10px;
+}
+
+/* ============================================
+   REQUIREMENTS SKELETON
+============================================ */
+.reqCard {
+  background: #fff;
+  padding: 22px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sectionTitle {
+  @extend .skeleton;
+  height: 18px;
+  width: 40%;
+  margin-bottom: 4px;
+}
+
+.sectionTitleSmall {
+  @extend .skeleton;
+  height: 14px;
+  width: 30%;
+  margin-top: 12px;
+}
+
+.reqItem {
+  @extend .skeleton;
+  height: 12px;
+  width: 85%;
+}
+
+.reqItemShort {
+  @extend .skeleton;
+  height: 12px;
+  width: 60%;
+}

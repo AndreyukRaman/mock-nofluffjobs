@@ -17,8 +17,10 @@ import SidebarOffers from "../../components/Job/SidebarOffers";
 import AboutCompany from "../../components/Job/AboutCompany";
 import SubscribeFooter from "../../components/Footer/SubscribeFooter";
 import { useEffect, useState } from "react";
-import SidebarOffersSkeleton from "../../components/SidebarOffersSkeleton";
+import SidebarOffersSkeleton from "../../components/Skeletons/SidebarOffersSkeleton";
 import { useParams } from "react-router-dom";
+import JobRequirementsSkeleton from "../../components/Skeletons/JobRequirementsSkeleton";
+import JobHeaderSkeleton from "../../components/Skeletons/JobHeaderSkeleton";
 
 export default function JobPage() {
   const [jobs, setJobs] = useState<StrapiJobListItem[]>([]);
@@ -316,9 +318,13 @@ export default function JobPage() {
         {/* INNER CONTAINER – 1200px */}
         <div className={styles.inner}>
           <main className={styles.main}>
-            {jobData && (
+            {!jobData ? (
               <>
-                {" "}
+                <JobHeaderSkeleton />
+                <JobRequirementsSkeleton />
+              </>
+            ) : (
+              <>
                 <JobHeader job={jobData} />
                 <JobRequirements
                   requirements={jobData.requirements}
