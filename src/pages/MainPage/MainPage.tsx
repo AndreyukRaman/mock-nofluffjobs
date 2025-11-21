@@ -7,16 +7,15 @@ import { useParams, Link } from "react-router-dom";
 import SubscribeFooter from "../../components/Footer/SubscribeFooter";
 
 interface Props {
-  jobs: StrapiJobListItem[];
+  jobs?: StrapiJobListItem[];
 }
 
-export default function MainPage(props: Props): JSX.Element {
+export default function MainPage(): JSX.Element {
   const [jobs, setJobs] = useState<StrapiJobListItem[]>([]);
   const [loader, setLoader] = useState(false);
 
   const { id } = useParams(); // /job/:id
 
-  //jobs list
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -32,26 +31,17 @@ export default function MainPage(props: Props): JSX.Element {
           return;
         }
 
-        console.log(json.data);
+        const formatted: StrapiJobListItem[] = json.data.map((item: any) => ({
+          id: item.id,
+          documentId: item.documentId,
+          title: item.title,
+          salary: item.salary,
+          company: item.company,
+          location: item.location,
+          skills: item.skills?.map((s: any) => ({ id: s.id, name: s.name })) ?? [],
+          logo: item.logo ? { url: item.logo.url } : undefined,
+        }));
 
-        const formatted: StrapiJobListItem[] = json.data.map((item: any) => {
-          return {
-            id: item.id,
-            documentId: item.documentId,
-            title: item.title,
-            salary: item.salary,
-            company: item.company,
-            location: item.location,
-
-            skills:
-              item.skills?.map((s: any) => ({
-                id: s.id,
-                name: s.name,
-              })) || [],
-
-            logo: item.logo ? { url: item.logo.url } : undefined,
-          };
-        });
         setJobs(formatted);
       } catch (err) {
         console.error("FETCH ERROR:", err);
@@ -65,51 +55,62 @@ export default function MainPage(props: Props): JSX.Element {
 
   return (
     <div className={styles.page}>
-      {/* OUTER CONTAINER – 1900px */}
+      {/* OUTER CONTAINER */}
       <div className={styles.outer}>
-        {/* INNER CONTAINER – 1200px */}
         <div className={styles.inner}>
           <main className={styles.main}>
             <div className={styles.offerContainer2}>
-              <h2> OFERTY</h2>
-              {jobs?.map((job) => (
-                <Link to={`/job/${job.documentId}`} className={styles.jobCard2}>
+              <h2>OFERTY</h2>
+
+              {jobs?.map((job, index) => (
+                <Link
+                  key={job.id}
+                  to={`/job/${job.documentId}`}
+                  className={`${styles.jobCard2} ${index < 3 ? styles.highlight : ""}`}
+                >
+                  {/* LOGO */}
                   <div className={styles.logoWrapper}>
                     {job.logo?.url && <img src={job.logo.url} alt={job.title} />}
                   </div>
+
+                  {/* MAIN INFO */}
                   <div className={styles.infoWrapper}>
                     <h5>{job.title}</h5>
-                    <button>{job.salary}</button>
-                    <ul>
-                      {job.skills?.map((skill) => (
-                        <li key={skill.id}>
-                          <button>{skill.name}</button>
-                        </li>
-                      ))}
-                    </ul>
+
+                    {/* SKILLS */}
+                    <div className={styles.skillsRowMobile}>
+                      <ul className={styles.skillsList}>
+                        {job.skills?.map((skill) => (
+                          <li key={skill.id}>
+                            <button>{skill.name}</button>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className={styles.salaryTag}>{job.salary}</div>
+                    </div>
+                    {/* DETAILS */}
                     <div className={styles.detailsRow}>
                       <span>
-                        {" "}
-                        <Building2 size={14} />
-                        {job.company}
+                        <Building2 size={14} /> {job.company}
                       </span>
                       <span>
-                        <MapPin size={14} />
-                        {job.location}
+                        <MapPin size={14} /> {job.location}
                       </span>
                     </div>
-
-                    <Bookmark className={styles.bookmark} />
                   </div>
+                  {/* BOOKMARK */}
+                  <Bookmark className={styles.bookmark} size={18} />
                 </Link>
               ))}
             </div>
           </main>
         </div>
+
         <div className={styles.footerWrapper}>
           <SubscribeFooter />
         </div>
       </div>
+
       <button className={styles.chatButton}>
         <MessagesSquare />
       </button>

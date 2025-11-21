@@ -41,7 +41,7 @@ export default function SubscribeFooter() {
           </div>
 
           <div className={styles.item}>
-            <img src="/icons/speechify.svg" alt="Speechify" />
+            <img src="/icons/speechify.png" alt="Speechify" />
             <p>365 dni dostępu Speechify Premium</p>
           </div>
         </div>
