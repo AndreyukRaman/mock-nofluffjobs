@@ -7,6 +7,10 @@
   flex-direction: column;
   gap: 20px;
 
+  .item{
+    flex: 0 0 200px;
+  }
+
   .title {
     font-size: 22px;
     font-weight: 700;
@@ -79,16 +83,20 @@
     }
 
     .benefitsGrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
 
       .item {
+        flex: 1 1 200px;
         background: #fff;
         border-radius: 10px;
         padding: 20px;
         text-align: center;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        min-width: 0;
+
 
         img {
           height: 36px;
@@ -117,3 +125,42 @@
     margin-top: -10px;
   }
 }
+
+@media (max-width: 768px) {
+  .subscribe {
+
+    .benefitsBox {
+      .benefitsGrid {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .item {
+          flex: 0 0 calc(50% - 15px);
+          max-width: calc(50% - 15px);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  .subscribe {
+
+    padding: 15px;
+
+    .benefitsBox {
+      padding: 0; // ← теперь это НЕ перезатирается!
+
+      .benefitsGrid {
+        flex-direction: column;
+        gap: 12px;
+
+        .item {
+          flex: none !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+      }
+    }
+  }
+}
+

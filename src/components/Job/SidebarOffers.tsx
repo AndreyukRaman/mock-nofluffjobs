@@ -1,6 +1,7 @@
 import styles from "./SidebarOffers.module.scss";
 import { Bookmark, Building2, MapPin } from "lucide-react";
 import { StrapiJobListItem, StrapiSkill } from "../../types/Job";
+import { Link } from "react-router-dom";
 
 interface Props {
   jobs: StrapiJobListItem[];
@@ -11,7 +12,7 @@ export default function SidebarOffers(props: Props) {
     <div className={styles.offerContainer}>
       <h2>ZOBACZ PODOBNE OFERTY</h2>
       {props.jobs?.map((job) => (
-        <div className={styles.jobCard}>
+        <Link key={job.id} to={`/job/${job.documentId}`} className={styles.jobCard}>
           <div className={styles.logoWrapper}>
             {job.logo?.url && <img src={job.logo.url} alt={job.title} />}
           </div>
@@ -39,7 +40,7 @@ export default function SidebarOffers(props: Props) {
 
             <Bookmark className={styles.bookmark} />
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

@@ -2,18 +2,17 @@ import styles from "./SidebarSalary.module.scss";
 import { MoreVertical } from "lucide-react";
 
 interface Props {
-  min: number;
-  max: number;
+  salary: string;
   currency?: string;
   b2b?: boolean;
 }
 
-export default function SidebarSalary({ min, max, currency = "PLN", b2b = true }: Props) {
+export default function SidebarSalary({ salary, currency = "PLN", b2b = true }: Props) {
   return (
     <div className={styles.card}>
       <div className={styles.salary}>
         <p className={styles.range}>
-          {min.toLocaleString()} – {max.toLocaleString()} {currency}
+          {salary} {currency}
         </p>
 
         <p className={styles.sub}>+ VAT ({b2b ? "B2B" : "UoP"}) miesięcznie</p>

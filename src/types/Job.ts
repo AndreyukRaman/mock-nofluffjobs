@@ -21,6 +21,7 @@ export type StrapiAdditionalReq = {
 
 export type StrapiJobListItem = {
   id: number;
+  documentId: number;
   title: string;
   salary: string;
   company: string;
@@ -33,6 +34,7 @@ export type StrapiJobListItem = {
 
 export type StrapiJobSingle = {
   id: number;
+  documentId: number;
   title: string;
   salary: string;
   company: string;

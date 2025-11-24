@@ -100,7 +100,7 @@ export default function JobPage() {
 
         const formatted: StrapiJobSingle = {
           id: item.id,
-          // documentId: item.documentId,
+          documentId: item.documentId,
           title: item.title,
           salary: item.salary,
           company: item.company,
@@ -380,7 +380,7 @@ export default function JobPage() {
           </main>
 
           <aside className={styles.sidebar}>
-            <SidebarSalary min={14000} max={22500} />
+            {jobData && <SidebarSalary salary={jobData.salary} />}
             <Rate emojis={emojis} labels={labels} />
             {loader ? <SidebarOffersSkeleton /> : <SidebarOffers jobs={jobs} />}
 
