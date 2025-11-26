@@ -1,7 +1,7 @@
 $max-outer: 1900px;
 $max-inner: 1100px;
 $break-md: 768px;
-$break-sm: 576px;
+$break-sm: 480px;
 
 .page {
   width: 100%;
@@ -198,11 +198,6 @@ $break-sm: 576px;
   }
 
 
-  .salaryTag {
-    position: static;
-    margin-left: auto;
-    order: 2;
-  }
 
   .infoWrapper {
     display: flex;
@@ -214,7 +209,7 @@ $break-sm: 576px;
   .skillsRowMobile {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 5px;
 
 
 
@@ -223,17 +218,54 @@ $break-sm: 576px;
       flex-wrap: wrap;
       order: 2;
 
+ button{
+   font-size: 8px;
+   padding: 3px;
+ }
     }
 
 
     .salaryTag {
       order: 1;
       white-space: nowrap;
-      font-size: 10px;
+      font-size: 8px;
+      position: static;
+      margin-left: auto;
     }
   }
 
   .detailsRow {
     order: 3;
   }
+}
+
+@media (max-width: $break-sm) {
+
+  .page .outer{
+    padding:  5px;
+
+    .inner .main .offerContainer2 .skillsRowMobile {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .salaryTag{
+        font-size: 7px;
+      }
+
+      .skillsList{
+        button{
+          font-size: 6px;
+          padding: 3px;
+        }
+      }
+
+    }
+
+    .footerWrapper{
+      padding: 0;
+    }
+  }
+
 }

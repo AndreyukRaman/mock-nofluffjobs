@@ -31,6 +31,7 @@
   }
 
   .form {
+    flex-wrap: wrap;
     display: flex;
     gap: 10px;
 
@@ -129,14 +130,22 @@
 @media (max-width: 768px) {
   .subscribe {
 
+    .form button{
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 12ps;
+    }
+
     .benefitsBox {
       .benefitsGrid {
         flex-wrap: wrap;
         justify-content: center;
+        padding: 5px;
 
         .item {
-          flex: 0 0 calc(50% - 15px);
-          max-width: calc(50% - 15px);
+          flex: 0 0 calc(100% - 10px);
+          max-width: calc(100% - 10px);
+          padding: 0;
         }
       }
     }
@@ -144,20 +153,21 @@
 }
 @media (max-width: 480px) {
   .subscribe {
-
-    padding: 15px;
+    padding: 10px;
 
     .benefitsBox {
-      padding: 0; // ← теперь это НЕ перезатирается!
+      padding: 10px;
 
       .benefitsGrid {
         flex-direction: column;
         gap: 12px;
+        padding: 5px;
 
         .item {
           flex: none !important;
           width: 100% !important;
           max-width: 100% !important;
+          padding:  10px 0;
         }
       }
     }
